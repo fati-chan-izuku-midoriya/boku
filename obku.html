@@ -1,0 +1,65 @@
+<html><head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="app" class="container"> 
+            <div> 
+                <font color="orange"><h1>Boku No Hero Academia API</h1></font> 
+                <font color="green"><h2>Busca tu personaje favorito de Boku No Hero Academia</h2></font> 
+                <font color="Brown"><h6>nota: al hacer su busqueda las iniciales ponerlas en mayusculas y siempre unidas con un "_"</h6></font>
+                <input type="text" placeholder="buscar villano, héroe o estudiante" size="60" id="inputnombre">
+            </div>
+            <div>
+                <br>
+                <button class="btn btn-warning" v-on:click="buscar">
+                   buscar 
+                </button><br><br> 
+                <font color="blue"> 
+                <i id="pokes">su alias es: {{pokes.alias}}</i><br>
+                <i id="pokes">sus ojos son de color: {{pokes.Eye}}</i><br>
+                <i id="pokes">su afiliación es: {{pokes.affiliation}}</i><br>
+                <i id="pokes">su cumpleaños es: {{pokes.birthday}}</i><br>
+                <i id="pokes">su tipo de sangre es: {{pokes.bloodtype}}</i><br>
+                <i id="pokes">su epíteto es: {{pokes.epithet}}</i><br>
+                <i id="pokes">su cabello es de color: {{pokes.hair}}</i><br>
+                <i id="pokes">su identificacion: {{pokes.id}}</i><br>
+                <i id="pokes">su familia es: {{pokes.family}}</i><br>
+                <i id="pokes">su don es: {{pokes.quirk}}</i><br>
+                <i id="pokes">su estado es:: {{pokes.status}}</i><br>
+                <i id="pokes">su romaji es: {{pokes.romaji}}</i><br>
+                <i id="pokes">su altura es : {{pokes.height}}</i><br>
+                <i id="pokes">su kanji es: {{pokes.kanji}}</i><br>
+                <i id="pokes">su equipo es: {{pokes.teams}}</i><br>
+                <i id="pokes">su nombre es: {{pokes.name}}</i><br>
+                <i id="pokes">su descripcion es: {{pokes.description}}</i><br>
+                <i id="pokes">su genero es: {{pokes.gender}}</i><br>
+                <i id="pokes">su forma de pelea es: {{pokes.fightsyles}}</i><br>
+                    <div v-if="pokes.ages != null">
+                    <ul>
+                        <li v-for="age in pokes.ages">{{age.age}} -- {{age.when}} </li>
+                    </ul>
+                </div>
+                </font> 
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="carouselIner">
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="https://ih1.redbubble.net/image.824862980.0482/flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                            <div v-for="(item, index) in pokes.images" v-bind:class="{ 'active' : index == 0}" class="carousel-item"  data-bs-interval="2000" v-bind:id="index">
+                    
+                        <img v-bind:src="item" class="d-block w-100" alt="..."width="100" height="1000">
+                        
+                    </div>   
+                        
+                    </div>
+                    </div>
+                    </div>                     
+                </div>
+            
+                
+
+</body></html>
